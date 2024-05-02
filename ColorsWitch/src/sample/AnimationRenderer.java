@@ -4,7 +4,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
 /**
- * Fait le rendu d'un champignon sur l'écran en affichant image
+ * Fait le rendu d'un champignon sur l'écran en affichant imagee
  */
 public class AnimationRenderer extends Renderer {
 
