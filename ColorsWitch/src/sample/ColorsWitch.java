@@ -48,18 +48,13 @@ public class ColorsWitch extends Application {
 
                 controller.tick((now - lastTime) * 1e-9);
 
-
-
-          
-
-
-
                 context.setFill(Color.BLACK);
                 context.fillRect(0, 0, WIDTH, HEIGHT);
 
                 List<Entity> entities = controller.getEntities();
-
+                
                 for (Entity e : entities) {
+                    
                     e.getRepresentation().draw(controller.getCurrentLevel(), context);
                 }
 
@@ -73,14 +68,14 @@ public class ColorsWitch extends Application {
         scene.setOnKeyPressed((event) -> {
             if (event.getCode() == KeyCode.SPACE) {
                 controller.spaceTyped();
-            }
-            else if (event.getCode() == KeyCode.TAB){
-                pressTab = !pressTab;
-                if (pressTab){
+            } else if (event.getCode() == KeyCode.TAB) {
+                if (!pressTab) { // Si pressTab est false, activer le mode de test
+                    pressTab = true;
                     controller.testMode(true);
-                }
-                else{
-                   controller.testMode(false);
+                    controller.spaceTyped(); // Simuler l'appui sur la barre d'espace
+                } else { // Si pressTab est true, désactiver le mode de test
+                    pressTab = false;
+                    controller.testMode(false);
                 }
             }
         });

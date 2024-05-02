@@ -11,7 +11,8 @@ public class Mushroom extends Item {
     public Mushroom(double x, double y) {
         super(x, y);
 
-        this.renderer = new AnimationRenderer("mushroom_animation", 26, 20, this);
+        //this.renderer = new AnimationRenderer("mushroom_animation", 26, 20, this);//2024-04-25
+        this.renderer = new AnimationRenderer("mushroom",this);
     }
     public double getDeltaTime(){
         return deltaTime;

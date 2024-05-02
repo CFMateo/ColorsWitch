@@ -12,7 +12,7 @@ public class ImageRenderer extends Renderer {
     private Entity entity;
 
     public ImageRenderer(String name, Entity e) {
-        img = new Image("/" + name + ".png");
+        img = new Image("/images/" + name + ".png");//img = new Image("/" + name + ".png");//2024-04-25
         this.entity = e;
     }
 

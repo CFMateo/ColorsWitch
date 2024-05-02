@@ -1,6 +1,7 @@
 package sample;
 
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.ImagePattern;
 
 /**
  * Fait le rendu d'un Player sur l'écran en dessinant un cercle coloré
@@ -8,7 +9,6 @@ import javafx.scene.canvas.GraphicsContext;
 public class PlayerRenderer extends Renderer {
 
     private Player player;
-
     public PlayerRenderer(Player player) {
         this.player = player;
     }

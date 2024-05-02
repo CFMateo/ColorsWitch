@@ -41,10 +41,11 @@ public class Game {
                 level = new Level2(screenWidth, screenHeight);
                 break;
             case 3:
-                level = new Level3(screenWidth, screenHeight);
+                level = new Level3(screenWidth, screenHeight); //2024-04-25
                 break;
             case 4:
-                level = new Level4(screenWidth, screenHeight);
+                level = new Level4(screenWidth, screenHeight); //2024-04-25
+                break;
             default:
                 throw new IllegalArgumentException("Niveau inconnu");
         }
@@ -57,6 +58,7 @@ public class Game {
      *
      * @param dt Delta-Temps (en secondes)
      */
+    
     public void tick(double dt) {
         level.tick(dt);
         player.tick(dt);

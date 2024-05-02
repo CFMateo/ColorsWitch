@@ -8,7 +8,10 @@ import java.util.List;
 public class Controller {
 
     private Game game;
-    private int level = 1;
+    //private int level = 1;
+    private int level = 2;
+    //private int level = 3;
+    //private int level = 4;
 
     public Controller() {
         this.game = new Game(ColorsWitch.WIDTH, ColorsWitch.HEIGHT, level);

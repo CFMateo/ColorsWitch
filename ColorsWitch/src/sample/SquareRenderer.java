@@ -20,6 +20,7 @@ public class SquareRenderer extends Renderer {
 
         context.setFill(Renderer.convertColor(carre.getColor()));
 
+        
         context.fillRect(
                 carre.getX() - carre.getWidth() / 2,
                 canvasY - carre.getWidth() / 2,
