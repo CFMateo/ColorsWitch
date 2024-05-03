@@ -6,7 +6,7 @@ import javafx.util.Duration;
 import java.time.temporal.ChronoUnit;
 /**
  * Classe représentant l'entité de la personne qui joue (aka, la sorcière).
- *
+ *s
  * La sorcière est représentée par un cercle.
  */
 public class Player extends Entity {
