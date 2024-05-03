@@ -8,7 +8,7 @@ public class Level4 extends Level {
         double x = screenWidth / 2;
 
         // Création des obstacles
-        Square obstacle1 = new Square(x, 0.75 * screenHeight, 40);
+        Square obstacle1 = new Square(x, 2.3 * screenHeight, 60);
         Square obstacle2 = new Square(x, 1.2 * screenHeight, 60);
         Square obstacle3 = new Square(x, 1.75 * screenHeight, 60);
         Square obstacle4 = new Square(x, 3 * screenHeight, 200);
@@ -28,29 +28,22 @@ public class Level4 extends Level {
 
         obstacles.add(vertical1);
         obstacles.add(vertical2);
-
-        //Growing circles
-        
-        GrowingCircle growingC1 = new GrowingCircle(x, 1 * screenHeight, 20,screenWidth); // 20 est la largeur, la longeur est par defaut largeur * 4
-        //GrowingCircle growingC2 = new GrowingCircle(x, 2.2 * screenHeight, 40,screenWidth);
-
-        obstacles.add(growingC1);
-        //obstacles.add(growingC2);
+       
 
         //Rotating circles
         
         //RotatingCircle rotatingC1 = new RotatingCircle(x, 1 * screenHeight, 20,40,screenHeight,screenWidth); // 20 est la largeur, la longeur est par defaut largeur * 4
-        RotatingCircle rotatingC2 = new RotatingCircle(x, 4.2 * screenHeight, 40,80,screenHeight,screenWidth);
+        RotatingCircle rotatingC1 = new RotatingCircle(x, 4 * screenHeight, 40,80,screenHeight,screenWidth);
 
         //obstacles.add(rotatingC1);
-        obstacles.add(rotatingC2);
+        obstacles.add(rotatingC1);
 
         // Création des items
         
         //Potion potion1 = new Potion(x, 1.5 * screenHeight); //2024-04-26
         //Potion potion2 = new Potion(x, 2.6 * screenHeight); //2024-04-26
 
-        Potion potion1 = new Potion(screenWidth / 2, 1.5 * screenHeight);
+        Potion potion1 = new Potion(screenWidth / 2, 2 * screenHeight);
         Potion potion2 = new Potion(screenWidth / 2, 2.6 * screenHeight);
 
         items.add(potion1);
@@ -64,7 +57,7 @@ public class Level4 extends Level {
         
         // changer la position du champignon dans Level1
         //victoryMushroom = new Mushroom(screenWidth / 2, 3.5 * screenHeight);
-        victoryMushroom = new Mushroom(screenWidth /2, 4 * screenHeight);
+        victoryMushroom = new Mushroom(screenWidth /2, 3.5 * screenHeight);
         //victoryMushroom = new Mushroom(screenWidth /2, 5* screenHeight);
     }
 }

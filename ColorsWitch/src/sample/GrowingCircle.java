@@ -28,12 +28,15 @@ public class GrowingCircle extends Circle {
             color = (color + 1) % 4;
             timeSinceColorChange = 0;
         }
-        //changement de taille du cercle : le minimum est un cerle de rayon <=0, le max est rayon >= largeur ecran/2
         
-        if (agrandir) this.setRadius(this.getRadius() + 1);
-        else this.setRadius(this.getRadius() -1);
-        if (agrandir && this.getRadius() >= (largeurEcranJeu/2)) agrandir = false;
-        if (!agrandir && this.getRadius() <= 0) agrandir = true;
+        // Ajustement de la vitesse d'agrandissement
+        double vitesseAgrandissement = 32; // Modifier cette valeur selon la vitesse souhaitée
+        if (agrandir) {
+            this.setRadius(this.getRadius() + vitesseAgrandissement * dt);
+            if (this.getRadius() >= (largeurEcranJeu / 2)) agrandir = false;
+        } else {
+            this.setRadius(this.getRadius() - vitesseAgrandissement * dt);
+            if (this.getRadius() <= 0) agrandir = true;
+        }
     }
-
 }

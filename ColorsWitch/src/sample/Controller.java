@@ -8,18 +8,33 @@ import java.util.List;
 public class Controller {
 
     private Game game;
-    //private int level = 1;
     private int level = 2;
-    //private int level = 3;
-    //private int level = 4;
+    
 
     public Controller() {
-        this.game = new Game(ColorsWitch.WIDTH, ColorsWitch.HEIGHT, level);
+        this.game = new Game(ColorsWitch.WIDTH, ColorsWitch.HEIGHT, 4);
+        
     }
-
+    
+    public void setLevelSelected(String level) {
+        if (level.equals("Level 1")) {
+            this.level = 1;
+        } else if (level.equals("Level 2")) {
+            this.level = 2;
+        } else if (level.equals("Level 3")) {
+            this.level = 3;
+        } else if (level.equals("Level 4")) {
+            this.level = 4;
+        }
+        // Met à jour le jeu avec le nouveau niveau sélectionné
+        this.game = new Game(ColorsWitch.WIDTH, ColorsWitch.HEIGHT, this.level);
+    }
+    
     public List<Entity> getEntities() {
         return this.game.getEntities();
     }
+    
+
 
     /**
      * Fonction appelée à chaque frame du jeu.
@@ -28,14 +43,19 @@ public class Controller {
     public void tick(double dt) {
         if (this.game.isGameOver()) {
             if (this.game.hasWon()) {
-                level++;
-            }
+                if (level < 4) { // Vérifie si le niveau actuel est inférieur au niveau maximal
+                	System.out.println("ggs");
+                    level++; // Passe au niveau suivant
+                    System.out.println(level);
 
-            this.game = new Game(ColorsWitch.WIDTH, ColorsWitch.HEIGHT, level);
+                }
+            }
+            this.game = new Game(ColorsWitch.WIDTH, ColorsWitch.HEIGHT, level); // Redémarre le niveau actuel
         } else {
             this.game.tick(dt);
         }
     }
+
 
     public Level getCurrentLevel() {
         return this.game.getLevel();

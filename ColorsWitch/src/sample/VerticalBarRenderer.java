@@ -1,4 +1,4 @@
-package sample;
+	package sample;
 
 import javafx.scene.canvas.GraphicsContext;
 

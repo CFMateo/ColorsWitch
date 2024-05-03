@@ -18,6 +18,8 @@ public class Circle extends Obstacle {
 
         this.color = (int) (Math.random() * 4);
     }
+    
+    
     public double getRadius() {
         return radius;
     }
@@ -46,6 +48,9 @@ public class Circle extends Obstacle {
             timeSinceColorChange = 0;
         }
     }
+    
+    
+
     @Override
     public boolean intersects(Player player) {//Ici on considere l'intersection des carres circonscrits aux cerles, c'est une simplification du probleme
             //System.out.println("PlayerX : " + player.getX() + "PlayerY : " + player.getY());

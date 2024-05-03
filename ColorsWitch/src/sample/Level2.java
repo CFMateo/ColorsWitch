@@ -64,7 +64,7 @@ public class Level2 extends Level {
         
         // changer la position du champignon dans Level1
         //victoryMushroom = new Mushroom(screenWidth / 2, 3.5 * screenHeight);
-        victoryMushroom = new Mushroom(screenWidth /2, 4 * screenHeight);
+        victoryMushroom = new Mushroom(screenWidth /2, 3.5 * screenHeight);
         //victoryMushroom = new Mushroom(screenWidth /2, 5* screenHeight);
     }
 }

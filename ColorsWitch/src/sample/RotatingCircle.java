@@ -32,12 +32,14 @@ public class RotatingCircle extends Circle {
             color = (color + 1) % 4;
             timeSinceColorChange = 0;
         }
-        //Rotation du cercle
-        teta +=0.05;
-        if (teta > (Math.PI * 2)) teta = 0; // remise à zéro pour évter une overflow
-        this.setX((this.screenWidth / 2) + (Math.cos(teta) * rayonRotation));
-        this.setY((this.screenHeight / 2) + (Math.sin(teta) * rayonRotation));
-    }
+        
+        // Ajustement de la vitesse de rotation
+        double vitesseRotation = 1; // Modifier cette valeur selon la vitesse souhaitée
+        teta += vitesseRotation * dt;
 
+        if (teta > (Math.PI * 2)) teta = 0; // remise à zéro pour éviter un débordement
+        this.setX((this.screenWidth / 2) + (Math.cos(teta) * rayonRotation));
+        this.setY((this.screenHeight / 2) + (Math.sin(teta) * rayonRotation) + 75);
+    }
 }
 

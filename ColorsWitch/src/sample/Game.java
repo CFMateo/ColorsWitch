@@ -21,7 +21,7 @@ public class Game {
     private boolean hasWon = false;
 
     /**
-     * Crée une partie dans le niveau levelNumber.
+     * Crée une partie selon le niveau levelNumber.
      *
      * @param screenWidth largeur de l'écran
      * @param screenHeight hauteur de l'écran
@@ -60,26 +60,28 @@ public class Game {
      */
     
     public void tick(double dt) {
-        level.tick(dt);
+        level.tick(dt); // Mettre à jour les éléments du niveau
+
+        // Mettre à jour la position du joueur
         player.tick(dt);
 
+        // Gérer le scrolling vertical du niveau par rapport au joueur
         if (player.getY() - player.getRadius() < level.getScroll()) {
-            // Empêche la balle de sortir de l'écran
             player.setY(level.getScroll() + player.getRadius());
         } else if (player.getY() - level.getScroll() > screenHeight / 2) {
-            // Scroll le level verticalement si nécessaire
             level.incrementScroll(player.getY() - level.getScroll() - screenHeight / 2);
         }
 
-        // Gestion des collisions avec les éléments (items/obstacles/...) du niveau
-        if(!this.test) {
-            for (LevelElement element : level.getEntities()) {
-                if (element.intersects(player)) {
-                    element.handleCollision(player, this);
-                }
+        // Mettre à jour la position des obstacles et gérer les collisions avec le joueur
+        for (LevelElement element : level.getEntities()) {
+            element.tick(dt);
+            if (element.intersects(player)) {
+                element.handleCollision(player, this);
             }
         }
     }
+
+
 
     /**
      * @return les entités à afficher à l'écran
