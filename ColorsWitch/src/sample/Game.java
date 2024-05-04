@@ -59,7 +59,7 @@ public class Game {
      * @param dt Delta-Temps (en secondes)
      */
     
-    public void tick(double dt) {
+    public void tick(double dt, boolean pressTab) {
         level.tick(dt); // Mettre à jour les éléments du niveau
 
         // Mettre à jour la position du joueur
@@ -76,10 +76,14 @@ public class Game {
         for (LevelElement element : level.getEntities()) {
             element.tick(dt);
             if (element.intersects(player)) {
-                element.handleCollision(player, this);
+                // Vérifier si pressTab est vrai pour éviter de perdre lors d'une collision
+                if (!pressTab) {
+                    element.handleCollision(player, this);
+                }
             }
         }
     }
+
 
 
 

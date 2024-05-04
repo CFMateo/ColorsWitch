@@ -9,7 +9,7 @@ public class Controller {
 
     private Game game;
     private int level = 2;
-    
+    private boolean pressTab = false; // Ajout de la variable pressTab
 
     public Controller() {
         this.game = new Game(ColorsWitch.WIDTH, ColorsWitch.HEIGHT, 4);
@@ -52,7 +52,7 @@ public class Controller {
             }
             this.game = new Game(ColorsWitch.WIDTH, ColorsWitch.HEIGHT, level); // Redémarre le niveau actuel
         } else {
-            this.game.tick(dt);
+            this.game.tick(dt,pressTab);
         }
     }
 
@@ -66,6 +66,17 @@ public class Controller {
      */
     public void spaceTyped() {
         this.game.jump();
+    }
+    
+    
+ // Méthode pour activer ou désactiver pressTab
+    public void togglePressTab() {
+        pressTab = !pressTab;
+    }
+
+    // Méthode pour vérifier si pressTab est activé
+    public boolean isPressTab() {
+        return pressTab;
     }
     public void testMode(boolean test){
         this.game.setTest(test);

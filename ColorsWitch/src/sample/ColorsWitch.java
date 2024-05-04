@@ -30,17 +30,17 @@ public class ColorsWitch extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        // Création du menu
+    	// Création du menu
         Menu menu = new Menu();
 
         // Initialisation du contrôleur
-        Controller controller = new Controller();
+        controller = new Controller(); // Utilisez une instance unique de Controller	
 
         // Écoute des actions de l'utilisateur dans le menu
         menu.setOnOptionSelected((option) -> {
             if (!option.equals("Exit")) {
-                controller.setLevelSelected(option); // Appel de setLevelSelected avec le niveau sélectionné
-                showGameScene(primaryStage, controller); // Affichage de la scène du jeu avec le contrôleur
+                controller.setLevelSelected(option);
+                showGameScene(primaryStage); // Appel de showGameScene sans passer de controller
             } else {
                 // Mettez ici le code pour quitter l'application
                 primaryStage.close();
@@ -57,7 +57,7 @@ public class ColorsWitch extends Application {
         primaryStage.show();
     }
 
-    private void showGameScene(Stage primaryStage, Controller controller) {
+    private void showGameScene(Stage primaryStage	) {
         // Création de la scène principale
         Canvas canvas = new Canvas(WIDTH, HEIGHT);
         Pane root = new Pane(canvas);
@@ -69,15 +69,7 @@ public class ColorsWitch extends Application {
             if (event.getCode() == KeyCode.SPACE) {
                 controller.spaceTyped();
             } else if (event.getCode() == KeyCode.TAB) {
-                if (!pressTab) {
-                	System.out.print("Tab appuyé");
-                    pressTab = true;
-                    controller.testMode(true);
-                    controller.spaceTyped();
-                } else {
-                    pressTab = false;
-                    controller.testMode(false);
-                }
+                controller.togglePressTab(); // Active ou désactive le mode de test
             } else if (event.getCode() == KeyCode.ESCAPE) {
                 if (animationTimer != null) {
                     animationTimer.stop();
@@ -89,6 +81,7 @@ public class ColorsWitch extends Application {
             }
         });
 
+
         // Démarrage de l'animation
         startAnimation(controller);
 
@@ -98,6 +91,7 @@ public class ColorsWitch extends Application {
         primaryStage.setResizable(false);
         primaryStage.show();
     }
+
 
     private void startAnimation(Controller controller) {
         animationTimer = new AnimationTimer() {
