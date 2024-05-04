@@ -44,7 +44,6 @@ public class Controller {
         if (this.game.isGameOver()) {
             if (this.game.hasWon()) {
                 if (level < 4) { // Vérifie si le niveau actuel est inférieur au niveau maximal
-                	System.out.println("ggs");
                     level++; // Passe au niveau suivant
                     System.out.println(level);
 

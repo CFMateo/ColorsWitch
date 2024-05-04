@@ -11,6 +11,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+
 public class ColorsWitch extends Application {
 
     public static final double WIDTH = 320, HEIGHT = 480;

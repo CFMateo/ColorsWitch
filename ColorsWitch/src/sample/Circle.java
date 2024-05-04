@@ -43,7 +43,7 @@ public class Circle extends Obstacle {
     public void tick(double dt) {
         timeSinceColorChange += dt;
 
-        if (timeSinceColorChange > 2) {
+        if (timeSinceColorChange > 3) {
             color = (color + 1) % 4;
             timeSinceColorChange = 0;
         }

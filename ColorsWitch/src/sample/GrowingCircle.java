@@ -1,4 +1,4 @@
-package sample;
+	package sample;
 
 /**
  * Obstacle simple : un carré qui change de couleur à toutes les 2 secondes.
