@@ -7,7 +7,7 @@ package sample;
  */
 public class Mushroom extends Item {
     private double deltaTime = 0;
-
+    
     public Mushroom(double x, double y) {
         super(x, y);
 
