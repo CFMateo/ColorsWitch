@@ -1,5 +1,19 @@
 package sample;
 
+
+
+/*
+ TODO: - TACHES OBLIGATOIRES - 
+ 0: Ajouter un mode de test  = VALIDE
+ 1: Créer trois nouveaux types d’Obstacles = VALIDE
+ 2: Créer un nouvel Item = VALIDE
+ 3: Créer 4 niveaux = VALIDE
+ 4: Corriger les collisions entre le cercle (Player) et le reste = VALIDE
+ 5: Animer le champignon = VALIDE
+ 6: Afficher un message lorsqu’on gagne ou perd dans un niveau = VALIDE
+ */
+
+
 import java.util.List;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
@@ -11,40 +25,60 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-
+/**
+ * Classe principale de l'application, responsable de l'initialisation et de la gestion des scènes du menu et du jeu.
+ */
 public class ColorsWitch extends Application {
 
+    // Constantes pour la taille de la fenêtre
     public static final double WIDTH = 320, HEIGHT = 480;
-    public boolean pressTab;
-    private Scene menuScene; // Déclaration de menuScene comme une variable accessible globalement
+
+    // Variable indiquant si la touche TAB est enfoncée
+    private boolean pressTab;
+
+    // Scène du menu
+    private Scene menuScene;
+
+    // Contexte graphique pour dessiner sur le canevas
     private GraphicsContext context;
+
+    // Contrôleur pour gérer le jeu
     private Controller controller = new Controller();
     
-    // Déclaration de lastTime comme une variable globale
+    // Dernier instant de temps enregistré
     private long lastTime = 0;
-    // Déclaration de l'AnimationTimer actuel
+    
+    // AnimationTimer actuel
     private AnimationTimer animationTimer;
 
+    /**
+     * Méthode principale pour lancer l'application.
+     * @param args Arguments de la ligne de commande
+     */
     public static void main(String[] args) {
         launch(args);
     }
 
+    /**
+     * Méthode appelée au démarrage de l'application.
+     * @param primaryStage La fenêtre principale de l'application
+     * @throws Exception En cas d'erreur lors du démarrage de l'application
+     */
     @Override
     public void start(Stage primaryStage) throws Exception {
-    	// Création du menu
+        // Création du menu
         Menu menu = new Menu();
 
         // Initialisation du contrôleur
-        controller = new Controller(); // Utilisez une instance unique de Controller	
+        controller = new Controller(); // Utilisation d'une instance unique de Controller
 
         // Écoute des actions de l'utilisateur dans le menu
         menu.setOnOptionSelected((option) -> {
             if (!option.equals("Exit")) {
                 controller.setLevelSelected(option);
-                showGameScene(primaryStage); // Appel de showGameScene sans passer de controller
+                showGameScene(primaryStage); // Affichage de la scène de jeu
             } else {
-                // Mettez ici le code pour quitter l'application
-                primaryStage.close();
+                primaryStage.close(); // Fermeture de l'application
             }
         });
 
@@ -58,14 +92,18 @@ public class ColorsWitch extends Application {
         primaryStage.show();
     }
 
-    private void showGameScene(Stage primaryStage	) {
-        // Création de la scène principale
+    /**
+     * Affiche la scène de jeu dans la fenêtre principale.
+     * @param primaryStage La fenêtre principale de l'application
+     */
+    private void showGameScene(Stage primaryStage) {
+        // Création de la scène de jeu
         Canvas canvas = new Canvas(WIDTH, HEIGHT);
         Pane root = new Pane(canvas);
         context = canvas.getGraphicsContext2D();
         Scene scene = new Scene(root, WIDTH, HEIGHT);
 
-        // Ajout des gestionnaires d'événements à la scène principale
+        // Ajout des gestionnaires d'événements à la scène de jeu
         scene.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.SPACE) {
                 controller.spaceTyped();
@@ -73,27 +111,28 @@ public class ColorsWitch extends Application {
                 controller.togglePressTab(); // Active ou désactive le mode de test
             } else if (event.getCode() == KeyCode.ESCAPE) {
                 if (animationTimer != null) {
-                    animationTimer.stop();
+                    animationTimer.stop(); // Arrêt de l'animation
                 }
-                primaryStage.setScene(menuScene); // Revenir au menu principal
+                primaryStage.setScene(menuScene); // Retour au menu principal
                 primaryStage.setTitle("Colors Witch - Menu");
-                // Réinitialiser les valeurs de temps
-                lastTime = 0;
+                lastTime = 0; // Réinitialisation de lastTime
             }
         });
 
-
-        // Démarrage de l'animation
+        // Démarrage de l'animation du jeu
         startAnimation(controller);
 
-        // Affichage de la scène principale dans la fenêtre principale
+        // Affichage de la scène de jeu dans la fenêtre principale
         primaryStage.setScene(scene);
         primaryStage.setTitle("Colors Witch");
         primaryStage.setResizable(false);
         primaryStage.show();
     }
 
-
+    /**
+     * Démarre l'animation du jeu en utilisant un AnimationTimer.
+     * @param controller Le contrôleur du jeu
+     */
     private void startAnimation(Controller controller) {
         animationTimer = new AnimationTimer() {
             @Override
@@ -106,6 +145,11 @@ public class ColorsWitch extends Application {
                     e.getRepresentation().draw(controller.getCurrentLevel(), context);
                 }
                 lastTime = now; // Mise à jour de lastTime
+
+                // Dessiner le message (si présent)
+                if (controller.getGame().isGameOver() || controller.getGame().hasWon()) {
+                    controller.getGame().drawMessage(context);
+                }
             }
         };
         animationTimer.start();

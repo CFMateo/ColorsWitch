@@ -11,8 +11,10 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
-import javafx.scene.control.Label;
 
+/**
+ * Classe représentant le menu principal du jeu.
+ */
 public class Menu extends VBox {
 
     // Interface fonctionnelle pour écouter les options sélectionnées dans le menu
@@ -22,12 +24,13 @@ public class Menu extends VBox {
 
     private OptionSelectedListener optionSelectedListener;
 
+    /**
+     * Crée une nouvelle instance de Menu.
+     */
     public Menu() {
-
         // Ajout d'un remplissage supérieur pour dégager de l'espace entre le titre et les boutons
         setPadding(new Insets(40, 0, 0, 0));
 
-    	
         // Création des boutons du menu pour chaque niveau et le bouton Exit
         Button level1Button = createButton("Level 1");
         Button level2Button = createButton("Level 2");
@@ -77,4 +80,3 @@ public class Menu extends VBox {
         this.optionSelectedListener = listener;
     }
 }
-
