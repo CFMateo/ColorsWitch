@@ -37,7 +37,7 @@ public class Potion extends Item {
         
         if (!used){
         this.renderer = new ImageRenderer("empty-potion", this); // 2024-04-25 // new ImageRenderer("empty-potion", this);
-        player.randomizeColor();
+        //player.randomizeColor();
         used = true;
         }
     }
