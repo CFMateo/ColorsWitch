@@ -13,11 +13,13 @@ d'autres objets offrent des bonus (bouclier, score...). La partie est perdue si 
 
 
 Exemple de gameplay : 
-# 1:
-https://github.com/user-attachments/assets/07e917fd-b0b2-48cf-b4bc-329e7cffcdea
+# 1: Niveau 2 Réussi, Passage au niveau 3
+<img width="474" height="768" alt="image" src="https://github.com/user-attachments/assets/b918e30a-e2a4-44b0-8a3b-18a4183ecfd8" />
 
-# 2:
-https://github.com/user-attachments/assets/6d07fa5f-39ff-421f-870c-70919013c61f
+
+# 2: Niveau 2 Perdu
+<img width="486" height="760" alt="image" src="https://github.com/user-attachments/assets/f6e98888-8a7e-4a57-85a3-11373ceb0b8d" />
+
 
 
 
