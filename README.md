@@ -1,14 +1,24 @@
 
 # ColorsWitch – Jeu JavaFX
 
-Présentation
+## Présentation
 ColorsWitch est une réimplémentation en JavaFX du célèbre jeu mobile "Color Switch". Ce projet repose sur une architecture orientée objet modulaire, 
 avec séparation claire entre la logique métier, les entités du jeu, et leur rendu visuel.
 
-Objectif du jeu
+
+## Objectif du jeu
 Le joueur contrôle une balle colorée qui doit traverser différents obstacles en mouvement. 
 Il ne peut traverser que les zones qui correspondent à la couleur actuelle de la balle. Des potions changent la couleur,
 d'autres objets offrent des bonus (bouclier, score...). La partie est perdue si la balle touche une mauvaise couleur.
+
+
+Exemple de gameplay : 
+# 1:
+https://github.com/user-attachments/assets/07e917fd-b0b2-48cf-b4bc-329e7cffcdea
+
+# 2:
+https://github.com/user-attachments/assets/6d07fa5f-39ff-421f-870c-70919013c61f
+
 
 
 ## Objectifs techniques
@@ -69,3 +79,19 @@ ColorsWitch/
 
 ```bash
 --module-path /chemin/vers/javafx-sdk-21/lib --add-modules javafx.controls,javafx.fxml
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
