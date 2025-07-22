@@ -14,7 +14,8 @@ d'autres objets offrent des bonus (bouclier, score...). La partie est perdue si 
 
 Exemple de gameplay : 
 # 1: Niveau 2 Réussi, Passage au niveau 3
-<img width="474" height="768" alt="image" src="https://github.com/user-attachments/assets/b918e30a-e2a4-44b0-8a3b-18a4183ecfd8" />
+<img width="474" height="768" alt="image" src="https://github.com/user-attachments/assets/2fa743bb-396d-43d5-8376-30bc1a4e5bff" />
+
 
 
 # 2: Niveau 2 Perdu
