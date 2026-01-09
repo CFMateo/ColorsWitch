@@ -33,25 +33,29 @@ Exemple de gameplay :
 ---
 
 ## Structure du projet
+
 ColorsWitch/
-└── src/
-    └── sample/
-        ├── ColorsWitch.java          # Point d'entrée de l'application (Main)
-        ├── Controller.java           # Gestion des entrées clavier et événements
-        ├── Game.java                 # Cœur du moteur : boucle de jeu et collisions
-        ├── Player.java               # Logique et état du joueur
-        ├── Entity.java               # Classe abstraite de base pour tous les objets
-        ├── Level.java                # Architecture générique d'un niveau
-        ├── Level1~4.java             # Définitions spécifiques des niveaux
-        ├── Obstacle.java             # Classe mère pour les éléments restrictifs
-        ├── Item.java                 # Super-classe pour les collectables
-        ├── Potion/Shield/Mushroom.java # Implémentations des bonus
-        ├── Renderers/                # Logique d'affichage JavaFX :
-        │   ├── CircleRenderer.java
-        │   ├── ImageRenderer.java
-        │   ├── PlayerRenderer.java
-        │   └── AnimationRenderer.java # Gestion des cycles d'animation
-        └── Menu.java                 # Interface utilisateur et navigation
+└── src/sample/
+    ├── ColorsWitch.java          # Point d'entrée (Main) et initialisation JavaFX
+    ├── Controller.java           # Gestionnaire d'événements et entrées clavier
+    ├── Game.java                 # Moteur : boucle principale et gestion des collisions
+    ├── Player.java               # État et comportement du personnage
+    ├── Entity.java               # Classe abstraite de base pour tous les objets
+    ├── Menu.java                 # Gestion des interfaces et de la navigation
+    │
+    ├── Levels/                   # Gestion de la progression
+    │   ├── Level.java            # Contrat de base pour la création de niveaux
+    │   └── Level1~4.java         # Implémentations spécifiques des parcours
+    │
+    ├── Entities/                 # Objets interactifs
+    │   ├── Obstacle.java         # Classe mère pour les obstacles dynamiques
+    │   ├── Item.java             # Super-classe pour les bonus collectables
+    │   └── Potion/Shield.java    # Spécifications des effets (Bonus)
+    │
+    └── Renderers/                # Couche graphique (JavaFX)
+        ├── AnimationRenderer.java # Moteur d'animations cycliques
+        └── Circle/PlayerRenderer.java # Logiques d'affichage spécifiques
+
 ---
 
 ## Fonctionnalités principales
