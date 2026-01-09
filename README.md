@@ -36,21 +36,22 @@ Exemple de gameplay :
 ColorsWitch/
 └── src/
     └── sample/
-        ├── ColorsWitch.java         # Point d'entrée principal
-        ├── Controller.java          # Contrôle les entrées clavier et logique de boucle
-        ├── Entity.java              # Classe abstraite pour tous les objets du jeu
-        ├── Game.java                # Boucle principale, logique de mise à jour, collisions
-        ├── Level.java               # Classe abstraite de niveau
-        ├── Level1~4.java            # Niveaux spécifiques avec entités propres
-        ├── Player.java              # Logique du joueur
-        ├── Obstacle.java           # Classe mère pour les obstacles
-        ├── Item.java                # Super-classe pour les bonus
-        ├── Potion / Shield / Mushroom.java # Bonus spécifiques
-        ├── Renderer classes         # Gèrent l'affichage avec JavaFX :
-        │     ├── CircleRenderer, ImageRenderer, PlayerRenderer, etc.
-        ├── AnimationRenderer.java   # Gère les animations cycliques
-        └── Menu.java                # Interface de sélection des niveaux
-
+        ├── ColorsWitch.java          # Point d'entrée de l'application (Main)
+        ├── Controller.java           # Gestion des entrées clavier et événements
+        ├── Game.java                 # Cœur du moteur : boucle de jeu et collisions
+        ├── Player.java               # Logique et état du joueur
+        ├── Entity.java               # Classe abstraite de base pour tous les objets
+        ├── Level.java                # Architecture générique d'un niveau
+        ├── Level1~4.java             # Définitions spécifiques des niveaux
+        ├── Obstacle.java             # Classe mère pour les éléments restrictifs
+        ├── Item.java                 # Super-classe pour les collectables
+        ├── Potion/Shield/Mushroom.java # Implémentations des bonus
+        ├── Renderers/                # Logique d'affichage JavaFX :
+        │   ├── CircleRenderer.java
+        │   ├── ImageRenderer.java
+        │   ├── PlayerRenderer.java
+        │   └── AnimationRenderer.java # Gestion des cycles d'animation
+        └── Menu.java                 # Interface utilisateur et navigation
 ---
 
 ## Fonctionnalités principales
