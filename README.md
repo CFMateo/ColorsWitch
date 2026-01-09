@@ -34,27 +34,61 @@ Exemple de gameplay :
 
 ## Structure du projet
 
-ColorsWitch/
-└── src/sample/
-    ├── ColorsWitch.java          # Point d'entrée (Main) et initialisation JavaFX
-    ├── Controller.java           # Gestionnaire d'événements et entrées clavier
-    ├── Game.java                 # Moteur : boucle principale et gestion des collisions
-    ├── Player.java               # État et comportement du personnage
-    ├── Entity.java               # Classe abstraite de base pour tous les objets
-    ├── Menu.java                 # Gestion des interfaces et de la navigation
-    │
-    ├── Levels/                   # Gestion de la progression
-    │   ├── Level.java            # Contrat de base pour la création de niveaux
-    │   └── Level1~4.java         # Implémentations spécifiques des parcours
-    │
-    ├── Entities/                 # Objets interactifs
-    │   ├── Obstacle.java         # Classe mère pour les obstacles dynamiques
-    │   ├── Item.java             # Super-classe pour les bonus collectables
-    │   └── Potion/Shield.java    # Spécifications des effets (Bonus)
-    │
-    └── Renderers/                # Couche graphique (JavaFX)
-        ├── AnimationRenderer.java # Moteur d'animations cycliques
-        └── Circle/PlayerRenderer.java # Logiques d'affichage spécifiques
+## 🏗️ Architecture du Projet
+
+Le projet adopte une structure **orientée objet** modulaire, séparant strictement la logique physique, la gestion des états et le rendu graphique sous JavaFX.
+
+---
+
+### Organisation des Composants
+
+| Module | Classes Clés | Responsabilités |
+| :--- | :--- | :--- |
+| ** Core** | `ColorsWitch`, `Game`, `Controller` | Cycle de vie de l'application, boucle de jeu et gestion des entrées clavier. |
+| ** Player** | `Player`, `Entity` | Gestion de la physique (gravité, sauts) et des collisions de couleur. |
+| ** Obstacles** | `Obstacle`, `Level1~4` | Architecture des niveaux et comportements des éléments bloquants. |
+| ** Bonus** | `Item`, `Potion`, `Shield`, `Mushroom` | Système de power-ups utilisant l'héritage pour des effets variés. |
+| ** Graphics** | `Renderers`, `AnimationRenderer` | Moteur de rendu découplé pour l'affichage et les animations JavaFX. |
+
+---
+
+### Hiérarchie et Héritage (Modèle OO)
+
+Le cœur du jeu repose sur une hiérarchie de classes permettant un traitement polymorphe des objets à l'écran :
+
+* **`Entity` (Classe Abstraite)** : Définit les bases de tout objet (coordonnées, dimensions, vélocité).
+* **`Level` (Classe Abstraite)** : Fournit un patron pour la création de niveaux extensibles.
+* **`Renderer`** : Interface de rendu isolant la vue du modèle de données.
+
+
+
+---
+
+### Structure des Sources
+
+```text
+src/sample/
+├──  Game Logic
+│   ├── ColorsWitch.java      # Point d'entrée
+│   ├── Game.java             # Boucle principale & Collisions
+│   ├── Controller.java       # Inputs clavier
+│   └── Player.java           # Physique du joueur
+│
+├── Level Design
+│   ├── Level.java            # Modèle de niveau
+│   └── Level1~4.java         # Implémentations spécifiques
+│
+├── Entités & Objets
+│   ├── Entity.java           # Base abstraite
+│   ├── Obstacle.java         # Classe mère obstacles
+│   ├── Item.java             # Super-classe bonus
+│   └── Potion/Shield/Mushroom.java
+│
+└── Rendering System
+    ├── Menu.java             # Interface UI
+    ├── AnimationRenderer.java # Gestionnaire d'animations
+    └── Circle/ImageRenderer.java # Rendu JavaFX spécifique
+```
 
 ---
 
